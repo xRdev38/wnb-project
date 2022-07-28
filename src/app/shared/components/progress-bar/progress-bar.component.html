@@ -1,0 +1,15 @@
+<ng-container *ngIf="progress as data">
+  <div id="progress-bar" class="progress">
+    <div
+      *ngFor="let item of data"
+      class="progress-bar"
+      [ngClass]="'bg-' + item.name"
+      role="progressbar"
+      [attr.aria-label]="item.name"
+      aria-valuenow="0"
+      aria-valuemin="0"
+      [ngStyle]="{ width: item.percent }"
+      aria-valuemax="100"
+    ></div>
+  </div>
+</ng-container>
