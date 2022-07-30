@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BaseComponent } from '../base.component';
 
-interface ProgressData {
+export interface ProgressData {
   name: string;
   percent: number;
 }
@@ -13,7 +13,7 @@ interface ProgressData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProgressBarComponent extends BaseComponent {
-  @Input() set Progress(data: ProgressData[]) {
+  @Input() set progress(data: ProgressData[]) {
     this.progressData = data;
   }
 
