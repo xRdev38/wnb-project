@@ -1,1 +1,7 @@
-<p>avatar-volunteer works!</p>
+<ng-container *ngIf="avatar$ | async as avatar">
+  <div class="c-avatar">
+    <img class="c-avatar__img" [src]="'./assets/avatar/'+ avatar.srcUrl" alt=""/>
+    <span class="c-avatar__id">{{ avatar.id }}</span>
+    <span class="c-avatar__date">Inscrit le : {{ avatar.dateCreated | date:'dd LLLL y' }}</span>
+  </div>
+</ng-container>

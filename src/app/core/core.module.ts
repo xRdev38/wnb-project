@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VolunteersService } from './services';
+import { ApiService } from '@core/services';
 
 @NgModule({
   declarations: [],
   imports: [CommonModule],
-  providers: [VolunteersService],
+  providers: [ApiService],
 })
 export class CoreModule {}

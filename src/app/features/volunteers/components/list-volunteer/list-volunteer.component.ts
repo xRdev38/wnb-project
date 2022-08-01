@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-list-volunteer',
   templateUrl: './list-volunteer.component.html',
-  styleUrls: ['./list-volunteer.component.scss']
+  styleUrls: ['./list-volunteer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListVolunteerComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

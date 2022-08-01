@@ -1,5 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { VolunteersService } from '@core/services/volunteers.service';
+import { VolunteersService } from './volunteers.service';
 import { Wish, WishStatus } from '@core/models';
 import { Observable, of } from 'rxjs';
 

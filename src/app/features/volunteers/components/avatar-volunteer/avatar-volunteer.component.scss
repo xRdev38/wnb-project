@@ -1,0 +1,16 @@
+
+.c-avatar {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  &__img {
+
+  }
+  &__id {
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  &__date {
+
+  }
+}

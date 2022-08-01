@@ -1,0 +1,28 @@
+@use 'src/styles/base/variables' as vars;
+@use 'src/styles/base/fonts' as font;
+
+h1 {
+  padding-bottom: 40px;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.subtitle {
+  font-weight: 500;
+  transition: transform 2s;
+  &__icon {
+    font-size: 2rem;
+    color: vars.$black;
+    transform: rotate(-20deg);
+  }
+}
+
+.jumbotron {
+  min-height: 510px;
+}
+
+.linear-bg {
+  background: rgb(255,192,0);
+  background: linear-gradient(90deg, rgba(255,192,0,1) 0%, rgba(255,192,0, .7) 40%,  rgba(253, 231, 125, 1) 100%);
+  clip-path: polygon(100% 0, 100% 70%, 0 100%, 0 100%, 0 0);
+}

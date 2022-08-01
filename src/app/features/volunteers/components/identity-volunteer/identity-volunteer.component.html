@@ -1,1 +1,15 @@
-<p>identity-volunteer works!</p>
+<ng-container *ngIf="identity$ | async; let identity">
+  <div class="c-identity-volunteer">
+    <ng-container *ngIf="profileName$ | async; let profileName">
+      <h3 class="c-identity-volunteer__profile">{{ profileName }}</h3>
+    </ng-container>
+    <span class="c-identity-volunteer__company">{{ identity?.company?.name }}</span>
+
+    <ng-container *ngIf="coordinatorName$ | async; let coordinatorName">
+      <div class="item">
+        <span class="item__icon">icon</span>
+        <span class="item__value">{{ coordinatorName }}</span>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>

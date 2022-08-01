@@ -3,8 +3,8 @@ import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, shareReplay } from 'rxjs/operators';
 
-import { ApiService } from './api.service';
-import { Wish, WishStatus } from '../models';
+import { ApiService } from '@core/services/api.service';
+import { Wish, WishStatus } from '@core/models';
 
 @Injectable()
 export class VolunteersService {
@@ -16,7 +16,7 @@ export class VolunteersService {
       .pipe(distinctUntilChanged(), shareReplay(1));
   }
 
-  getWishWithStatus(wishStatus: WishStatus): Observable<Wish[]> {
+  getWishWithStatus(wishStatus: WishStatus | string): Observable<Wish[]> {
     return this.apiService
       .get(
         '/wishes/',

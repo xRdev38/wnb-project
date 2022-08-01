@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BaseComponent } from '../../../../shared/components';
+import { Avatar } from '../../models';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-avatar-volunteer',
   templateUrl: './avatar-volunteer.component.html',
-  styleUrls: ['./avatar-volunteer.component.scss']
+  styleUrls: ['./avatar-volunteer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AvatarVolunteerComponent implements OnInit {
+export class AvatarVolunteerComponent extends BaseComponent {
+  avatar$ = new BehaviorSubject<Avatar | null>(null);
 
-  constructor() { }
-
-  ngOnInit() {
+  @Input() set avatar(avatar: Avatar) {
+    this.avatar$.next(avatar);
   }
 
+  constructor() {
+    super();
+  }
 }
