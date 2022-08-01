@@ -1,0 +1,19 @@
+@use 'src/styles/base/variables' as vars;
+@use 'src/styles/base/fonts' as font;
+
+html {
+  font-size: font.$font-size-html;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
+  background-color: vars.$light-white;
+}
+
+body {
+  margin: 0;
+  font-family: font.$font-family-base;
+  font-size: font.$font-size-base;
+  line-height: font.$line-height-base;
+  background-color: font.$body-bg;
+  color: font.$body-color;
+}
