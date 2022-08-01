@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { IdentityVolunteerComponent } from './identity-volunteer.component';
 
@@ -6,7 +6,7 @@ describe('IdentityVolunteerComponent', () => {
   let component: IdentityVolunteerComponent;
   let fixture: ComponentFixture<IdentityVolunteerComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ IdentityVolunteerComponent ]
     })

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NavFilterComponent } from './nav-filter.component';
 import { WishStatus } from '@core/models';
@@ -14,7 +14,7 @@ describe('NavFilterComponent', () => {
     },
   ];
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NavFilterComponent],
     }).compileComponents();
