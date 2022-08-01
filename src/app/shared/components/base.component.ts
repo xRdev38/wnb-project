@@ -1,6 +1,17 @@
-import { AfterViewInit, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  OnDestroy,
+  OnInit,
+  Component,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 
+@Component({
+  selector: 'app-base',
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
 export class BaseComponent implements OnInit, OnDestroy, AfterViewInit {
   public onDestroy$ = new ReplaySubject<void>(1);
   public onInit$ = new ReplaySubject<void>(1);

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { CardComponent } from './components';
+import { BaseComponent, CardComponent } from './components';
 import { NavFilterComponent } from './components';
 import { ProgressBarComponent } from './components';
 
@@ -15,7 +15,17 @@ import { ProgressBarComponent } from './components';
     HttpClientModule,
     RouterModule,
   ],
-  declarations: [CardComponent, NavFilterComponent, ProgressBarComponent],
-  exports: [CardComponent, NavFilterComponent, ProgressBarComponent],
+  declarations: [
+    BaseComponent,
+    CardComponent,
+    NavFilterComponent,
+    ProgressBarComponent,
+  ],
+  exports: [
+    BaseComponent,
+    CardComponent,
+    NavFilterComponent,
+    ProgressBarComponent,
+  ],
 })
 export class SharedModule {}
