@@ -4,6 +4,8 @@ export enum WishStatus {
   WaitingAssociationValidation = 'WAITING_ASSOCIATION_VALIDATION',
   WaitingManagerValidation = 'WAITING_MANAGER_VALIDATION',
   InProgress = 'IN_PROGRESS',
+  UserHasParticipated = 'USER_HAS_PARTICIPATED',
+  Cancelled = 'CANCELLED',
 }
 
 export interface WishCount {
