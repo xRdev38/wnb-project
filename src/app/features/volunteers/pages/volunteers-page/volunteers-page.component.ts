@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseComponent, ProgressData } from '../../../../shared/components';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { WishCount } from '@core/models';
-import { LabelByWishStatus } from '@core/models/LabelByWishStatus.model';
+import { LabelByWishStatus } from '@core/models/label-by-wish-status.model';
 import { VolunteersWishFacadeService } from '../../services';
 import { Observable } from 'rxjs';
 

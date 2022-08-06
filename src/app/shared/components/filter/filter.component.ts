@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WishStatus } from '@core/models';
 import { BaseComponent } from '../base.component';
-import { LabelByWishStatus } from '@core/models/LabelByWishStatus.model';
+import { LabelByWishStatus } from '@core/models/label-by-wish-status.model';
 import { BehaviorSubject } from 'rxjs';
 
 export interface FilterData {
