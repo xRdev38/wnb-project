@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Wish, WishStatus } from '@core/models';
-import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
-import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { Wish, WishCount, WishStatus } from '@core/models';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import {
+  distinctUntilChanged,
+  first,
+  map,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
 import { VolunteersService } from './volunteers.service';
 
 export interface Pagination {
@@ -12,6 +18,7 @@ export interface Pagination {
 
 export interface VolunteerWishState {
   wishes: Wish[];
+  count: WishCount[];
   pagination: Pagination;
   criteria: WishStatus | string;
   loading: boolean;
@@ -19,6 +26,7 @@ export interface VolunteerWishState {
 
 let stateWishes: VolunteerWishState = {
   wishes: [],
+  count: [],
   criteria: '',
   pagination: {
     currentPage: 0,
@@ -39,6 +47,10 @@ export class VolunteersWishFacadeService {
     map(state => state.wishes),
     distinctUntilChanged()
   );
+  count$ = this.state$.pipe(
+    map(state => state.count),
+    distinctUntilChanged()
+  );
   criteria$ = this.state$.pipe(
     map(state => state.criteria),
     distinctUntilChanged()
@@ -53,21 +65,30 @@ export class VolunteersWishFacadeService {
     this.pagination$,
     this.criteria$,
     this.wishes$,
+    this.count$,
     this.loading$
   ).pipe(
-    map(([pagination, criteria, wishes, loading]) => {
-      return { pagination, criteria, wishes, loading };
+    map(([pagination, criteria, wishes, count, loading]) => {
+      return { pagination, criteria, wishes, count, loading };
     })
   );
 
   constructor(private readonly volunteersService: VolunteersService) {
     combineLatest(this.criteria$, this.pagination$)
       .pipe(
-        switchMap(([criteria, pagination]) => {
+        switchMap(([criteria, _]) => {
           if (criteria === '') {
-            return of([]);
+            return this.volunteersService.getAllWishes();
           }
           return this.volunteersService.getWishWithStatus(criteria);
+        }),
+        tap(() => {
+          this.volunteersService
+            .getWishByCount()
+            .pipe(distinctUntilChanged(), first())
+            .subscribe(count => {
+              this.updateState({ ...stateWishes, count });
+            });
         })
       )
       .subscribe(wishes => {

@@ -1,1 +1,4 @@
-<p>volunteers-container works!</p>
+<ng-container *ngIf="wishes$ | async; let wishes">
+  <h2>La liste des volontaires</h2>
+  <app-list-volunteer [wishes]="wishes" [loading]="loading$ | async"></app-list-volunteer>
+</ng-container>

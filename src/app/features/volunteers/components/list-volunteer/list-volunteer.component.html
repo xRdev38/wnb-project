@@ -1,1 +1,12 @@
-<p>list-volunteer works!</p>
+<div class="list-volunteers">
+  <ng-container *ngIf="(loading$|async) === false; else hasNotDataWish">
+    <ng-container *ngFor="let data of wishes$ | async;">
+      <app-card [wish]="data"></app-card>
+    </ng-container>
+  </ng-container>
+  <ng-template #hasNotDataWish>
+    <div class="d-flex justify-content-center">
+      <app-spinner></app-spinner>
+    </div>
+  </ng-template>
+</div>

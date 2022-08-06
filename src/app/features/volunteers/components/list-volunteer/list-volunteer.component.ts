@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BaseComponent } from '../../../../shared/components';
+import { Wish } from '@core/models';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-list-volunteer',
@@ -6,8 +9,21 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./list-volunteer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListVolunteerComponent implements OnInit {
-  constructor() {}
+export class ListVolunteerComponent extends BaseComponent {
+  @Input() set wishes(data: Wish[]) {
+    this.wishes$.next(data);
+  }
+  @Input() set loading(isLoading: boolean) {
+    this.loading$.next(isLoading);
+  }
 
-  ngOnInit() {}
+  wishes$ = new BehaviorSubject<Wish[]>([]);
+  loading$ = new BehaviorSubject<boolean>(true);
+
+  constructor() {
+    super();
+  }
+  onScroll(): void {
+    console.log('scrolled!!');
+  }
 }

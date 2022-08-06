@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BaseComponent } from '../../../../shared/components';
+import { VolunteersWishFacadeService } from '../../services';
 
 @Component({
   selector: 'app-volunteers-container',
@@ -6,8 +8,13 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./volunteers-container.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VolunteersContainerComponent implements OnInit {
-  constructor() {}
+export class VolunteersContainerComponent extends BaseComponent {
+  wishes$ = this.volunteersWishFacadeService.wishes$;
+  loading$ = this.volunteersWishFacadeService.loading$;
 
-  ngOnInit() {}
+  constructor(
+    private readonly volunteersWishFacadeService: VolunteersWishFacadeService
+  ) {
+    super();
+  }
 }

@@ -1,12 +1,28 @@
 <div class="jumbotron linear-bg">
-  <div class="container white-bg">
+  <div class="container">
     <h1 class="h1">Les volontaires</h1>
-    <span class="subtitle">
-      <i class="bi bi-hand-index-thumb subtitle__icon"></i>
+    <div class="subtitle">
+      <div class="bi bi-hand-index-thumb subtitle__icon"></div>
       Retrouvez la liste de toutes les inscriptions à vos missions
-    </span>
+    </div>
+    <hr class="hr hr-white" />
   </div>
 </div>
-<div class="container white-bg">
-
+<div class="container container-negative white-bg">
+  <h2>En ce moment</h2>
+  <ng-container *ngIf="count$ | async; let count">
+    <h3  class="title"><span>{{ count }}</span> inscriptions</h3>
+  </ng-container>
+  <ng-container *ngIf="progressData$ | async; let progressData">
+    <div class="progress-bar-section">
+      <app-progress-bar class="c-progress-bar" [progress]="progressData"></app-progress-bar>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="filters$ | async; let filters">
+    <div class="nav-filter-section">
+      <h3>Suivez les inscriptions en fonction de leur statut :</h3>
+      <app-nav-filter (statusEmitter)="filterByStatus($event)" class="filters" [filters]="filters"></app-nav-filter>
+    </div>
+  </ng-container>
+  <app-volunteers-container></app-volunteers-container>
 </div>

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { distinctUntilChanged, shareReplay } from 'rxjs/operators';
 
 import { ApiService } from '@core/services/api.service';
-import { Wish, WishStatus } from '@core/models';
+import { Wish, WishCount, WishStatus } from '@core/models';
 
 @Injectable()
 export class VolunteersService {
@@ -22,6 +22,12 @@ export class VolunteersService {
         '/wishes/',
         new HttpParams({ fromObject: { status: `${wishStatus}` } })
       )
+      .pipe(distinctUntilChanged(), shareReplay(1));
+  }
+
+  getWishByCount(): Observable<WishCount[]> {
+    return this.apiService
+      .get('/stats/')
       .pipe(distinctUntilChanged(), shareReplay(1));
   }
 }
