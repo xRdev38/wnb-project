@@ -3,9 +3,17 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { BaseComponent, CardComponent } from './components';
-import { NavFilterComponent } from './components';
-import { ProgressBarComponent } from './components';
+import {
+  AvatarVolunteerComponent,
+  BaseComponent,
+  CardComponent,
+  IdentityVolunteerComponent,
+  InfoVolunteerComponent,
+  NavFilterComponent,
+  ProgressBarComponent,
+  SpinnerComponent,
+} from './components';
+import { FilterComponent } from './components/filter/filter.component';
 
 @NgModule({
   imports: [
@@ -18,14 +26,23 @@ import { ProgressBarComponent } from './components';
   declarations: [
     BaseComponent,
     CardComponent,
+    AvatarVolunteerComponent,
+    IdentityVolunteerComponent,
+    InfoVolunteerComponent,
     NavFilterComponent,
     ProgressBarComponent,
+    SpinnerComponent,
+    FilterComponent,
   ],
   exports: [
     BaseComponent,
     CardComponent,
+    AvatarVolunteerComponent,
+    IdentityVolunteerComponent,
+    InfoVolunteerComponent,
     NavFilterComponent,
     ProgressBarComponent,
+    SpinnerComponent,
   ],
 })
 export class SharedModule {}
