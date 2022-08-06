@@ -6,4 +6,6 @@ export const LabelByWishStatus: Record<WishStatus, string> = {
   [WishStatus.WaitingAssociationValidation]: 'Date à valider',
   [WishStatus.WaitingManagerValidation]: 'En attente du manager',
   [WishStatus.InProgress]: 'En cours',
+  [WishStatus.UserHasParticipated]: 'A participé',
+  [WishStatus.Cancelled]: 'Annulé / refusé / non finalisé',
 };
