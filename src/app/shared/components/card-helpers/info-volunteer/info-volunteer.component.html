@@ -1,0 +1,13 @@
+<div class="c-info-volunteer">
+  <div class="info-status">
+    <span>Statut :</span><app-filter [filter]="status$ | async"></app-filter>
+  </div>
+  <ng-container *ngIf="entries$ | async; let entries">
+    <div class="info-date">
+      <span *ngFor="let entry of entries; trackBy: trackByEntry">
+        Le {{ entry.dateBegin | date:'dd/MM/y'}}
+        <hr class="hr" />
+      </span>
+    </div>
+  </ng-container>
+</div>
