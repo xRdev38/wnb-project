@@ -1,0 +1,57 @@
+@use 'src/styles/base/variables' as vars;
+
+.btn {
+  margin-right: 10px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background-color: vars.$white;
+  box-shadow: 0 3px 6px vars.$grey;
+  border: 1px solid vars.$light-grey;
+  border-radius: 40px;
+}
+
+span {
+  margin: 0 10px;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.m {
+  &-application {
+    background-color: vars.$pink;
+  }
+  &-discussion {
+    background-color: vars.$red;
+  }
+  &-waiting_association_validation {
+    background-color: vars.$orange;
+  }
+  &-waiting_manager_validation {
+    background-color: vars.$mid-yellow;
+  }
+  &-in_progress {
+    background-color: vars.$light-green;
+  }
+  &-user_has_participated {
+    background-color: vars.$green;
+  }
+  &-cancelled {
+    background-color: vars.$light-grey;
+  }
+}
+
+.count {
+  font-size: 16px;
+  line-height: 46px;
+}
+
+.status {
+  font-size: 12px;
+  line-height: 15px;
+}

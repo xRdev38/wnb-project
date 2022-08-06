@@ -1,0 +1,7 @@
+<ng-container *ngIf="filterData$ | async; let filter">
+  <button (click)="status.emit(filter.status)" type="button" [class]="'btn ' + filter.status.toLocaleLowerCase()">
+    <span [class]="'dot m-' + filter.status.toLocaleLowerCase()"></span>
+    <span class="status">{{ LabelByWishStatus[filter.status] }}</span>
+    <span *ngIf="filter?.count" class="count">{{ filter.count }}</span>
+  </button>
+</ng-container>
