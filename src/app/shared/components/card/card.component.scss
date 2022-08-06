@@ -1,0 +1,29 @@
+.card {
+  margin-bottom: 60px;
+  background: #FFFFFF 0 0 no-repeat padding-box;
+  box-shadow: 0 3px 6px #00000029;
+  border-radius: 30px;
+  border: none;
+  &-body {
+    padding: 0;
+  }
+}
+
+.level {
+  display: flex;
+  // align-items: center;
+  justify-content: space-between;
+  &-left {
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+  }
+  &-right {
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  &-item {
+    padding: 1.25rem;
+  }
+}

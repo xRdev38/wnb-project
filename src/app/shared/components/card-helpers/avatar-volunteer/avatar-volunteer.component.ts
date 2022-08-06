@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BaseComponent } from '../../../../shared/components';
-import { Avatar } from '../../models';
+import { BaseComponent } from '../../index';
+import { Avatar } from '../../../models';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -11,6 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AvatarVolunteerComponent extends BaseComponent {
   avatar$ = new BehaviorSubject<Avatar | null>(null);
+  extensionImg = '.png';
 
   @Input() set avatar(avatar: Avatar) {
     this.avatar$.next(avatar);

@@ -1,0 +1,26 @@
+@use 'src/styles/base/variables' as vars;
+@use 'src/styles/base/fonts' as font;
+
+.c-avatar {
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__img {
+
+  }
+  &__id {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 46px;
+    text-transform: uppercase;
+    color: vars.$dark-grey;
+  }
+  &__date {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: vars.$mid-grey;
+  }
+}

@@ -1,6 +1,8 @@
 <ng-container *ngIf="avatar$ | async as avatar">
   <div class="c-avatar">
-    <img class="c-avatar__img" [src]="'./assets/avatar/'+ avatar.srcUrl" alt=""/>
+    <img class="c-avatar__img" [src]="'./assets/avatar/'+ avatar.srcUrl + extensionImg"
+         [srcset]="'./assets/avatar/'+ avatar.srcUrl + extensionImg + ' 1x, ./assets/avatar/'+ avatar.srcUrl + '@2x' + extensionImg + ' 2x'"
+         alt=""/>
     <span class="c-avatar__id">{{ avatar.id }}</span>
     <span class="c-avatar__date">Inscrit le : {{ avatar.dateCreated | date:'dd LLLL y' }}</span>
   </div>

@@ -1,10 +1,15 @@
 <div class="card">
-  <div class="card-body">
-    <div class="level-right">
-      <ng-content select="[card-body-right]"></ng-content>
+  <div class="card-body level">
+    <div class="level-left half-size">
+      <div class="level-item">
+        <app-avatar-volunteer [avatar]="avatar$ | async"></app-avatar-volunteer>
+      </div>
+      <div class="level-item">
+        <app-identity-volunteer [identity]="identity$ | async"></app-identity-volunteer>
+      </div>
     </div>
-    <div class="level-left">
-      <ng-content select="[card-body-left]"></ng-content>
+    <div class="level-right">
+      <app-info-volunteer [info]="info$ | async"></app-info-volunteer>
     </div>
   </div>
 </div>

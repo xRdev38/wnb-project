@@ -1,0 +1,47 @@
+@use 'src/styles/base/variables' as vars;
+@use 'src/styles/base/fonts' as font;
+
+.c-identity-volunteer{
+  display:block;
+  width: 100%;
+  height: 100%;
+  &__profile {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: vars.$dark-grey;
+  }
+  &__company {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: vars.$dark-grey;
+  }
+}
+
+.item {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: baseline;
+  color: vars.$black;
+  &__icon {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    color: vars.$black;
+    &--rotate {
+      transform: rotate(90deg);
+    }
+    &--adjust {
+      width: 18px;
+      height: 18px;
+      align-self: center;
+    }
+  }
+  &__value {
+    margin-left: 10px;
+    font-size: 14px;
+    &--adjust {
+      margin-left: 8px;
+    }
+  }
+}

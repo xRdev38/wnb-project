@@ -8,5 +8,6 @@ export interface Identity extends Profile {
   company: {
     name: string;
   };
+  title: string;
   coordinator: Profile;
 }
