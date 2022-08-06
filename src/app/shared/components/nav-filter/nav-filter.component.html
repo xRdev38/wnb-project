@@ -1,9 +1,5 @@
 <nav class="nav-filter">
   <ng-container *ngFor="let item of filters; trackBy:trackByWishCount">
-    <button type="button" [class]="'btn ' + item.className">
-      <span [class]="item.className"></span>
-      <span>{{ item.status }}</span>
-      <span>{{ item.count }}</span>
-    </button>
+    <app-filter class="nav-filter__item" [filter]="item" (status)="statusEmitter.emit($event)"></app-filter>
   </ng-container>
 </nav>
