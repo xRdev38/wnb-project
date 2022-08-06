@@ -1,12 +1,14 @@
-<div id="progress-bar" class="progress">
+<div id="progress" class="c-progress-bar progress">
   <div
     *ngFor="let item of progress; trackBy: trackByTypeProgress"
-    [class]="'progress-bar bg-' + item.name"
+    [class]="'progress-bar bg-' + item.name.toLocaleLowerCase()"
     role="progressbar"
-    [attr.aria-label]="item.name"
-    aria-valuenow="0"
+    [attr.aria-label]="item.name.toLocaleLowerCase()"
+    [attr.aria-valuenow]="item.percent"
     aria-valuemin="0"
-    [attr.style]="{ width: item.percent }"
+    [ngStyle]="{
+          'width': item.percent + '%'
+     }"
     aria-valuemax="100"
   ></div>
 </div>

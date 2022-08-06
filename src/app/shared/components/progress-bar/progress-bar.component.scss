@@ -1,0 +1,27 @@
+@use 'src/styles/base/variables' as vars;
+
+
+.progress {
+  border-radius: 9px;
+  &-bar {
+
+  }
+}
+
+.bg {
+  &-application {
+    background-color: vars.$pink;
+  }
+  &-discussion {
+    background-color: vars.$red;
+  }
+  &-waiting_association_validation {
+    background-color: vars.$orange;
+  }
+  &-waiting_manager_validation {
+    background-color: vars.$mid-yellow;
+  }
+  &-in_progress {
+    background-color: vars.$light-green;
+  }
+}

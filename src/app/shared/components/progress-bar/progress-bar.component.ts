@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BaseComponent } from '../base.component';
+import { WishStatus } from '@core/models';
 
 export interface ProgressData {
-  name: string;
-  percent: number;
+  name: WishStatus;
+  label: string;
+  percent: string;
 }
 
 @Component({
