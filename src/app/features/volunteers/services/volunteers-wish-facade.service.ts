@@ -9,6 +9,7 @@ import {
   tap,
 } from 'rxjs/operators';
 import { VolunteersService } from './volunteers.service';
+import { OverlayService } from '@core/services';
 
 export interface Pagination {
   selectedSize: number;
@@ -73,10 +74,14 @@ export class VolunteersWishFacadeService {
     })
   );
 
-  constructor(private readonly volunteersService: VolunteersService) {
+  constructor(
+    private readonly volunteersService: VolunteersService,
+    private readonly overlayService: OverlayService
+  ) {
     combineLatest(this.criteria$, this.pagination$)
       .pipe(
         switchMap(([criteria, _]) => {
+          this.overlayService.show();
           if (criteria === '') {
             return this.volunteersService.getAllWishes();
           }
@@ -92,6 +97,7 @@ export class VolunteersWishFacadeService {
         })
       )
       .subscribe(wishes => {
+        this.overlayService.hide();
         this.updateState({ ...stateWishes, wishes, loading: false });
       });
   }
