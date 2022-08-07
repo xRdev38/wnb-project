@@ -30,3 +30,12 @@ $dark-grey: #404040;
 $mid-grey: #8C8C8C;
 $light-grey: #D8D8D8;
 $green: #00B050;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);

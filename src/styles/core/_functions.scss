@@ -1,3 +1,4 @@
+@use 'src/styles/base/variables' as vars;
 // ----------------------
 // == Functions scss
 // ----------------------
@@ -8,9 +9,17 @@
 /// @return {Number}
 /// @require $z-indexes
 @function z($layer) {
-  @return map-get($z-indexes, $layer);
+  @return map-get(vars.$z-indexes, $layer);
 }
 
+/// Méthode pour récupérer le breakpoint en fonction du nom du layer
+/// @access public
+/// @param {String} $layer - Nom du layer
+/// @return {Number}
+/// @require $grid-breakpoints
+@function get-breakpoints($layer) {
+  @return map-get(vars.$grid-breakpoints, $layer);
+}
 
 /// Méthode pour récupérer la taille de font
 /// @access public
@@ -18,7 +27,7 @@
 /// @return {String}
 /// @require $f-sizes
 @function get-font-size($layer) {
-  @return map-get($f-size, $layer);
+  @return map-get(vars.$f-size, $layer);
 }
 
 /// Méthode pour faire un parse en nombre
