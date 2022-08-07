@@ -1,6 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { ListVolunteerComponent } from './components';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { VolunteersContainerComponent } from './containers';
 import { VolunteersPageComponent } from './pages';
 import { VolunteersService, VolunteersWishFacadeService } from './services';
@@ -33,6 +33,7 @@ const routes: Routes = [
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' },
+    DatePipe,
     ApiService,
     VolunteersService,
     VolunteersWishFacadeService,

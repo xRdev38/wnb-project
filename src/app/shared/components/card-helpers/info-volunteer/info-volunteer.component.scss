@@ -31,15 +31,24 @@
 
 .info-date {
   margin-top: 30px;
+  width: 70%;
+  @media (max-width: function.get-breakpoints(lg)) {
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
   span {
     font-size: 14px;
     line-height: 20px;
     color: vars.$dark-grey;
+    overflow: hidden;
   }
 }
 
 .hr {
-  margin: 0.6rem 0 0 0;
+  margin: 0.6rem 0;
   height: 1px;
   border-width: 0;
   color: vars.$light-grey;
