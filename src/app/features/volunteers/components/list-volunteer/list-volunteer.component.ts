@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BaseComponent } from '../../../../shared/components';
+import { BaseComponent } from '../../../../shared';
 import { Wish } from '@core/models';
 import { BehaviorSubject } from 'rxjs';
 

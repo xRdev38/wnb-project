@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BaseComponent, ProgressData } from '../../../../shared/components';
+import { BaseComponent, ProgressData } from '../../../../shared';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { WishCount } from '@core/models';
 import { LabelByWishStatus } from '@core/models/label-by-wish-status.model';

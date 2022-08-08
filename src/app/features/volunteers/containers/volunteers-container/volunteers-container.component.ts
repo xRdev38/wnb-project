@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BaseComponent } from '../../../../shared/components';
+import { BaseComponent } from '../../../../shared';
 import { VolunteersWishFacadeService } from '../../services';
 
 @Component({
