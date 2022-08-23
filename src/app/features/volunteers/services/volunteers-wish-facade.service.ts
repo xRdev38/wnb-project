@@ -88,12 +88,14 @@ export class VolunteersWishFacadeService {
           return this.volunteersService.getWishWithStatus(criteria);
         }),
         tap(() => {
-          this.volunteersService
-            .getWishByCount()
-            .pipe(distinctUntilChanged(), first())
-            .subscribe(count => {
-              this.updateState({ ...stateWishes, count });
-            });
+          if (stateWishes.count.length === 0) {
+            this.volunteersService
+              .getWishByCount()
+              .pipe(distinctUntilChanged(), first())
+              .subscribe(count => {
+                this.updateState({ ...stateWishes, count });
+              });
+          }
         })
       )
       .subscribe(wishes => {

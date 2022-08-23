@@ -1,9 +1,6 @@
 <main role="main">
   <router-outlet></router-outlet>
   <ng-container *ngIf="isLoading$ | async">
-    <div class="d-flex justify-content-center">
-
-    </div>
     <div id="overlay"><app-spinner [size]="5" id="loader"></app-spinner></div>
   </ng-container>
 </main>
